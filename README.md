@@ -46,3 +46,23 @@ alpha:fade - Enable traditional fade-transparency.
 alpha:premul - Enable premultiplied alpha transparency.
 
 Scene 창의 산그림 Animated Material 활성화
+
+# 07
+vertex color
+
+# 08
+metallic chart
+https://docs.unity3d.com/Manual/StandardShaderMaterialCharts.html
+
+
+Shader Calibration Scene
+https://www.assetstore.unity3d.com/en/#!/content/25422
+
+
+_BumpMap 변수 이름은, 다른 내장 쉐이더에서 쓰고 있기에, 호환성을 위해 맞춰주자
+
+
+DXT5nm - NormalMap 품질을 저하를 막기 위해 만든 AG파일 포멧.
+R과G의 퀄리티를 최대한 보전, A, G에 넣어 저장.
+NormalMap의 X,Y로 계산되며, Z는 삼각함수를 이용하여 수학적으로 추출.
+fixed3 n = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
