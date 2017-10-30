@@ -66,3 +66,9 @@ DXT5nm - NormalMap 품질을 저하를 막기 위해 만든 AG파일 포멧.
 R과G의 퀄리티를 최대한 보전, A, G에 넣어 저장.
 NormalMap의 X,Y로 계산되며, Z는 삼각함수를 이용하여 수학적으로 추출.
 fixed3 n = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
+
+
+Occlusion : 구석진 부분 추가 음영처리.
+환경광(Ambient Color)가 닿지 않는 부분을 Ambient Occlusion이라 부름.
+
+Occlusion 기능을 넣기 위해, 텍스쳐를 한장 더 사용하는것은 용량 낭비가 있으므로, 다른 곳에 찡겨넣는 것도 생각해보자(메인텍스쳐 알파라던가).
