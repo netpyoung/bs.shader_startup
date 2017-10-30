@@ -5,7 +5,7 @@ example : https://drive.google.com/uc?id=0B10G1-ySdDd1VVZiQzQyRll4RlE&export=dow
 password : utshader576
 
 
-
+## ch04
 Albedo : 물체 고유 색깔.
 Diffuse : 빛에 의한 색상. normal영향을 받는.
 Specular : 빛에 의해 하이라이트.
@@ -19,12 +19,15 @@ Environment
  - Environment Reflections
    - Source : `Custom`
 
+```
 #pragma surface surf Standard fullforwardshadows noambient
+```
 
-# 05
+
+## ch05
 texture 2개 lerp
 
-# 06
+## ch06
 texture uv, 시간에 따른 변화
 
 float4 _Time; (x, y, z, w) = (t/20, t, t * 2, t * 3)
@@ -47,10 +50,16 @@ alpha:premul - Enable premultiplied alpha transparency.
 
 Scene 창의 산그림 Animated Material 활성화
 
-# 07
+
+
+# ch07
+
 vertex color
 
-# 08
+
+
+# ch08
+
 metallic chart
 https://docs.unity3d.com/Manual/StandardShaderMaterialCharts.html
 
@@ -72,3 +81,50 @@ Occlusion : 구석진 부분 추가 음영처리.
 환경광(Ambient Color)가 닿지 않는 부분을 Ambient Occlusion이라 부름.
 
 Occlusion 기능을 넣기 위해, 텍스쳐를 한장 더 사용하는것은 용량 낭비가 있으므로, 다른 곳에 찡겨넣는 것도 생각해보자(메인텍스쳐 알파라던가).
+
+# ch09
+
+``` shader
+struct SurfaceOutputStandard {
+    fixed3 Albedo;
+    fixed3 Normal;
+    fixed3 Emission;
+    half Metallic;
+    half Smoothness;
+    half Occlusion;
+    half Alpha;
+}
+```
+
+``` shader
+struct SurfaceOutput {
+    fixed3 Albedo;
+    fixed3 Normal;
+    fixed3 Emission;
+    half Specular; // specular range.
+    half Gloss; // specular power.
+    half Alpha;
+}
+```
+
+BlinnPhong 쉐이더에는 _SpecColor 변수가 필요하다.
+
+
+# ch10
+![img](https://upload.wikimedia.org/wikipedia/commons/7/71/Sine_cosine_one_period.svg)
+
+
+# ch11
+float4 LightingTest(SurfaceOutput s, float3 lightDir, float atten)
+
+lightDir - (뒤집힌)조명벡터
+atten : attenuation - 감쇠
+
+# ch12
+# ch13
+# ch14
+# ch15
+# ch16
+# ch17
+# ch18
+# ch19
