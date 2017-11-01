@@ -121,7 +121,33 @@ lightDir - (뒤집힌)조명벡터
 atten : attenuation - 감쇠
 
 # ch12
+
+BRDF(Bidirectional Reflectance Distribute Function)
+
+같은 광원일지라도 각도가 작으면  스펙큘러가 훨씬 밝게 보이는 현상.
+Fresnel
+- 빛이 서로 다른 굴절률을 갖는 매질의 경계면을 통과할 때의 반사
+
+http://www.gamedevforever.com/35
+http://hwan0123.tistory.com/entry/프레넬-방정식
+
+```
+float3 viewDir; 뷰의 방향
+float4 color:Color; 보간된 버텍스 칼라
+float4 screenPos; 스크린 공간상의 위치
+float3 worldPos; 월드 공간상의 위치
+float3 worldRefl; o.Normal이 없는경우, 월드 반사 벡터(diffuse쉐이더 참조)
+float3 worldNormal; o.Normal이 없는경우, 월드 노멀벡터
+float3 worldRefl; INTERNAL_DATA o.Normal이 있는 경우, 월드 반사벡터 포함.
+픽셀당 노멀맵에 기초하여, 반사 벡터를 얻으려면 WorldReflectionVector(IN, o.Normal).(Reflect-Bumped쉐이더 참조)
+float3 worldNormal; INTERNAL_DATA o.Normal이 있는 경우, 월드 노말벡터 포함.
+픽셀당 노멀맵에 기초하여, 노말 벡터를 얻으려면 WorldNormalVector(IN, o.Normal).
+```
+
+
 # ch13
+_SpecColor는 이미 유니티에서 쓰고 있다.
+
 # ch14
 # ch15
 # ch16

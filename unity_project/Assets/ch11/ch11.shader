@@ -1,4 +1,4 @@
-﻿Shader "ch10/1" {
+﻿Shader "ch11/1" {
 	Properties {
                 _MainTex ("Albedo (RGB)", 2D) = "white" {}
                 _BumpMap("NormalMap", 2D) = "bump" {}
